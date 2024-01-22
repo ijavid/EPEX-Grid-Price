@@ -8,6 +8,13 @@ const rnwPath = fs.realpathSync(
   path.resolve(require.resolve('react-native-windows/package.json'), '..'),
 );
 
+const servicesPackagePath = fs.realpathSync(
+    path.resolve(__dirname, '..', 'services'),
+);
+
+console.log('servicesPackagePath', servicesPackagePath);
+    // '/Users/mac/my-own-packages/my-awesome-package';
+
 /**
  * Metro configuration
  * https://facebook.github.io/metro/docs/configuration
@@ -27,7 +34,9 @@ const config = {
       new RegExp(`${rnwPath}/target/.*`),
       /.*\.ProjectImports\.zip/,
     ]),
+    // nodeModulesPaths: [servicesPackagePath],
   },
+  // watchFolders: [servicesPackagePath],
   transformer: {
     getTransformOptions: async () => ({
       transform: {

@@ -15,20 +15,9 @@ import {fetchData, getDay, getMonday} from './services';
 
 import {Colors,} from 'react-native/Libraries/NewAppScreen';
 
-import jsonrawtoxlsx from "jsonrawtoxlsx";
-
-
-function downloadAsExcel() {
-    const json = [
-        {
-            name: 'John',
-            age: 27,
-            job: 'Software Engineer',
-        },
-    ];
-
-    const buffer = jsonrawtoxlsx(json);
-}
+const formatDate = new Intl.DateTimeFormat(undefined, {dateStyle: 'full'}).format;
+const formatTime = new Intl.DateTimeFormat(undefined, {timeStyle: 'short'}).format;
+const formatFull = new Intl.DateTimeFormat(undefined, {timeStyle: 'short', dateStyle: 'short'}).format;
 
 function useStyles() {
     const isDarkMode = useColorScheme() === 'dark';
@@ -76,7 +65,6 @@ function useStyles() {
 type SectionProps = PropsWithChildren<{
     title: string;
 }>;
-
 function Section({children, title}: SectionProps): React.JSX.Element {
     const {styles} = useStyles();
     return (<View style={styles.sectionContainer}>
@@ -84,10 +72,6 @@ function Section({children, title}: SectionProps): React.JSX.Element {
         <View style={styles.sectionContent}>{children}</View>
     </View>);
 }
-
-const formatDate = new Intl.DateTimeFormat(undefined, {dateStyle: 'full'}).format;
-const formatTime = new Intl.DateTimeFormat(undefined, {timeStyle: 'short'}).format;
-const formatFull = new Intl.DateTimeFormat(undefined, {timeStyle: 'short', dateStyle: 'short'}).format;
 
 
 function PriceRow({price, stats, lowLimit}: { price: any, stats: PriceStats, lowLimit: number }): React.JSX.Element {

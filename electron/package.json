@@ -1,9 +1,10 @@
 {
-  "name": "electron",
-  "productName": "electron",
+  "name": "epex-grid-price",
+  "productName": "EPEX-GRID-PRICE",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "EPEX Spot Electricity Grid Price",
   "main": ".webpack/main",
+  "repository": "https://github.com/ijavid/EPEX-Grid-Price",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
@@ -42,6 +43,8 @@
     "typescript": "~4.5.4"
   },
   "dependencies": {
+    "@electron-forge/maker-appx": "^7.2.0",
+    "@electron-forge/publisher-github": "^7.2.0",
     "antd": "^5.13.2",
     "antd-style": "^3.6.1",
     "axios": "^1.6.5",
@@ -50,6 +53,7 @@
     "path-browserify": "^1.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "stream-browserify": "^3.0.0"
+    "stream-browserify": "^3.0.0",
+    "update-electron-app": "^3.0.0"
   }
 }
